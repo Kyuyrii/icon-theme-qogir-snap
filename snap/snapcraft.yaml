@@ -1,0 +1,36 @@
+name: icon-theme-qogir
+build-base: core24
+base: bare
+version: '2025-04-02'
+platforms:
+  all:
+    build-on: [amd64]
+    build-for: [all]
+summary: Qogir icon theme
+description: |
+  A Snap that allows you to use Qogir icons in Snap apps
+grade: stable
+confinement: strict
+
+slots:
+  icon-themes:
+    interface: content
+    source:
+      read:
+        - $SNAP/share/icons/Qogir
+        - $SNAP/share/icons/Qogir-Dark
+        - $SNAP/share/icons/Qogir-Light
+        - $SNAP/share/icons/Qogir-Manjaro
+        - $SNAP/share/icons/Qogir-Manjaro-Dark
+        - $SNAP/share/icons/Qogir-Manjaro-Light
+        - $SNAP/share/icons/Qogir-Ubuntu
+        - $SNAP/share/icons/Qogir-Ubuntu-Dark
+        - $SNAP/share/icons/Qogir-Ubuntu-Light
+parts:
+  icon-themes:
+    plugin: dump
+    source: https://github.com/Kyuyrii/icon-theme-qogir-snap/releases/download/icon-theme-qogir/qogir-icon-theme-2025-04-02.zip
+    organize:
+      icon-themes: share/icons
+    prime:
+      - share/icons/
